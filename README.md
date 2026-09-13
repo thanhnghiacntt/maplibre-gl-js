@@ -153,33 +153,33 @@ Nếu muốn tự viết renderer 3D Tiles riêng (không phụ thuộc deck.gl)
 
 <br />
 
-## Contribution
+## Đóng góp
 
-### Getting Involved
+### Tham gia cùng chúng tôi
 
-Join the #maplibre slack channel at OSMUS: get an invite at https://slack.openstreetmap.us/
-Read the [CONTRIBUTING.md](CONTRIBUTING.md) guide in order to get familiar with how we do things around here.
+Tham gia kênh slack #maplibre tại OSMUS: lấy lời mời tại https://slack.openstreetmap.us/
+Đọc hướng dẫn [CONTRIBUTING.md](CONTRIBUTING.md) để làm quen với cách chúng tôi làm việc ở đây.
 
-### Avoid Fragmentation
+### Tránh phân mảnh cộng đồng
 
-If you depend on a free software alternative to `mapbox-gl-js`, please consider joining our effort! Anyone with a stake in a healthy community-led fork is welcome to help us figure out our next steps. We welcome contributors and leaders! MapLibre GL JS already represents the combined efforts of a few early fork efforts, and we all benefit from "one project" rather than "our way". If you know of other forks, please reach out to them and direct them here.
+Nếu bạn đang phụ thuộc vào một giải pháp phần mềm tự do thay thế cho `mapbox-gl-js`, hãy cân nhắc tham gia cùng chúng tôi! Bất kỳ ai có lợi ích liên quan đến một fork cộng đồng lành mạnh đều được chào đón để cùng bàn về bước đi tiếp theo. Chúng tôi hoan nghênh cả người đóng góp lẫn người dẫn dắt! MapLibre GL JS đã là kết quả của nhiều nỗ lực fork ban đầu gộp lại, và tất cả chúng ta đều có lợi khi theo "một dự án chung" thay vì "mỗi người một hướng". Nếu bạn biết đến các fork khác, hãy liên hệ và hướng họ về đây.
 
-> **MapLibre GL JS** is developed following [Semantic Versioning (2.0.0)](https://semver.org/spec/v2.0.0.html).
+> **MapLibre GL JS** được phát triển theo chuẩn [Semantic Versioning (2.0.0)](https://semver.org/spec/v2.0.0.html).
 
-## Sponsors
+## Nhà tài trợ
 
-We thank everyone who supported us financially in the past and special thanks to the people and organizations who support us with recurring donations!
+Chúng tôi xin cảm ơn tất cả những ai đã hỗ trợ tài chính trong thời gian qua, và đặc biệt cảm ơn các cá nhân, tổ chức đang tài trợ định kỳ cho dự án!
 
-Read more about the MapLibre Sponsorship Program at [https://maplibre.org/sponsors/](https://maplibre.org/sponsors/).
+Tìm hiểu thêm về Chương trình Tài trợ của MapLibre tại [https://maplibre.org/sponsors/](https://maplibre.org/sponsors/).
 
-Gold:
+Hạng Vàng:
 
 <a href="https://www.microsoft.com/"><img src="https://maplibre.org/img/msft-logo.svg" alt="Logo MSFT" width="25%"/></a>
 
 <a href="https://aws.amazon.com/location"><img src="https://maplibre.org/img/aws-logo.svg" alt="Logo AWS" width="25%"/></a>
 
 
-Silver:
+Hạng Bạc:
 
 <a href="https://www.mierune.co.jp/?lang=en"><img src="https://maplibre.org/img/mierune-logo.svg" alt="Logo MIERUNE" width="25%"/></a>
 
@@ -197,7 +197,7 @@ Silver:
 
 <a href="https://www.caltopo.com/"><img src="https://maplibre.org/img/smartmaps-logo.svg" alt="Logo SmartMaps" width="25%"/></a>
 
-Backers and Supporters:
+Người ủng hộ và nhà hảo tâm:
 
 <a href="https://opencollective.com/maplibre/backer/0/website?requireActive=false" target="_blank"><img src="https://opencollective.com/maplibre/backer/0/avatar.svg?requireActive=false"></a>
 <a href="https://opencollective.com/maplibre/backer/1/website?requireActive=false" target="_blank"><img src="https://opencollective.com/maplibre/backer/1/avatar.svg?requireActive=false"></a>
@@ -233,14 +233,14 @@ Backers and Supporters:
 
 <br />
 
-## Thank you Mapbox 🙏🏽
+## Cảm ơn Mapbox 🙏🏽
 
-We'd like to acknowledge the amazing work Mapbox has contributed to open source. The open source community is sad to part ways with them, but we simultaneously feel grateful for everything they already contributed. `mapbox-gl-js` 1.x is an open source achievement that now lives on as `maplibre-gl`. We're proud to develop on the shoulders of giants, thank you Mapbox 🙇🏽‍♀️.
+Chúng tôi muốn ghi nhận những đóng góp tuyệt vời mà Mapbox đã dành cho mã nguồn mở. Cộng đồng mã nguồn mở buồn khi phải chia tay họ, nhưng đồng thời cũng biết ơn tất cả những gì họ đã đóng góp. `mapbox-gl-js` 1.x là một thành tựu mã nguồn mở và vẫn tiếp tục sống dưới tên `maplibre-gl`. Chúng tôi tự hào được đứng trên vai những người khổng lồ, cảm ơn Mapbox 🙇🏽‍♀️.
 
-Please keep in mind: Unauthorized backports are the biggest threat to the MapLibre project. It is unacceptable to backport code from mapbox-gl-js, which is not covered by the former BSD-3 license. If you are unsure about this issue, [please ask](https://github.com/maplibre/maplibre-gl-js/discussions)!
+Xin lưu ý: Việc backport (đưa ngược code) trái phép là mối đe dọa lớn nhất đối với dự án MapLibre. Không được chấp nhận việc backport code từ mapbox-gl-js khi phần code đó không thuộc phạm vi giấy phép BSD-3 trước đây. Nếu bạn không chắc chắn về vấn đề này, [hãy hỏi chúng tôi](https://github.com/maplibre/maplibre-gl-js/discussions)!
 
 <br />
 
-## License
+## Giấy phép
 
-**MapLibre GL JS** is licensed under the [3-Clause BSD license](./LICENSE.txt).
+**MapLibre GL JS** được cấp phép theo [giấy phép BSD 3-Clause](./LICENSE.txt).
