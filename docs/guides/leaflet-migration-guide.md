@@ -1,20 +1,20 @@
-# Leaflet migration guide
+# Hướng dẫn di chuyển từ Leaflet
 
-This part of the docs is dedicated to the migration from `leaflet` to `maplibre-gl`.
+Phần tài liệu này dành riêng cho việc di chuyển (migration) từ `leaflet` sang `maplibre-gl`.
 
-This guide might not be accurate depending on the current version of `leaflet`.
+Hướng dẫn này có thể không hoàn toàn chính xác tùy thuộc vào phiên bản `leaflet` bạn đang sử dụng.
 
-The main differences in term of functionality is the ability to support map rotation, vector tiles and globe. For large datasets MapLibre is faster due to its usage of webgl technology.
+Khác biệt chính về mặt chức năng là khả năng hỗ trợ xoay bản đồ (map rotation), vector tile và chế độ globe (quả địa cầu). Với các tập dữ liệu lớn, MapLibre nhanh hơn nhờ sử dụng công nghệ WebGL.
 
-## Setting Up MapLibre
+## Thiết lập MapLibre
 
-Install MapLibre GL JS and replace Leaflet with MapLibre in your project:
+Cài đặt MapLibre GL JS và thay thế Leaflet bằng MapLibre trong dự án của bạn:
 
 ```
 npm install maplibre-gl
 ```
 
-## Initializing the Map
+## Khởi tạo bản đồ
 
 ### Leaflet
 
@@ -40,7 +40,7 @@ const map = new Map({
 });
 ```
 
-## Adding a Marker
+## Thêm Marker
 
 ### Leaflet
 
@@ -56,7 +56,7 @@ new maplibregl.Marker()
   .addTo(map);
 ```
 
-## Adding a GeoJSON Layer
+## Thêm GeoJSON Layer
 
 ### Leaflet
 
@@ -85,7 +85,7 @@ map.on('load', function () {
 });
 ```
 
-## Handling Click Events
+## Xử lý sự kiện Click
 
 ### Leaflet
 
@@ -103,7 +103,7 @@ map.on('click', function (event) {
 });
 ```
 
-## Displaying a Popup
+## Hiển thị Popup
 
 ### Leaflet
 
@@ -123,7 +123,7 @@ new maplibregl.Popup()
   .addTo(map);
 ```
 
-## Adding a Custom Tile Layer
+## Thêm Custom Tile Layer
 
 ### Leaflet
 
@@ -149,7 +149,7 @@ map.on('load', function () {
 });
 ```
 
-## Adding a Polygon
+## Thêm Polygon
 
 ### Leaflet
 
@@ -187,3 +187,4 @@ map.on('load', function () {
   });
 });
 ```
+</content>

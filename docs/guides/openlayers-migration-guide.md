@@ -1,17 +1,17 @@
-# OpenLayers migration guide
+# Hướng dẫn di chuyển từ OpenLayers
 
-This part of the docs is dedicated to the migration from `openlayers` to `maplibre-gl`.
+Phần tài liệu này dành riêng cho việc di chuyển (migration) từ `openlayers` sang `maplibre-gl`.
 
 
-## Setting Up MapLibre
+## Thiết lập MapLibre
 
-Install MapLibre GL JS and replace OpenLayers with MapLibre in your project:
+Cài đặt MapLibre GL JS và thay thế OpenLayers bằng MapLibre trong dự án của bạn:
 
 ```
 npm install maplibre-gl
 ```
 
-## Initializing the Map
+## Khởi tạo bản đồ
 
 ### OpenLayers
 ```js
@@ -49,7 +49,7 @@ const map = new Map({
 });
 ```
 
-## Adding a Marker
+## Thêm Marker
 
 ### OpenLayers
 
@@ -91,7 +91,7 @@ map.on('load', function () {
 });
 ```
 
-## Adding a GeoJSON Layer
+## Thêm GeoJSON Layer
 
 ### OpenLayers
 
@@ -131,7 +131,7 @@ map.on('load', function () {
 });
 ```
 
-## Handling Click Events
+## Xử lý sự kiện Click
 
 ### OpenLayers
 
@@ -149,7 +149,7 @@ map.on('click', function (event) {
 });
 ```
 
-## Displaying a Popup
+## Hiển thị Popup
 
 ### OpenLayers
 
@@ -176,3 +176,4 @@ const popup = new maplibregl.Popup()
   .setHTML('<p>Hello, MapLibre!</p>')
   .addTo(map);
 ```
+</content>

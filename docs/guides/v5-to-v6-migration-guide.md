@@ -1,12 +1,12 @@
-# v5 to v6 migration guide
+# Hướng dẫn di chuyển từ v5 sang v6
 
-MapLibre GL JS v6 ships as ES modules only. The UMD bundle, the separate CSP build, and the CommonJS (`require('maplibre-gl')`) entry from v5 are all gone. The bundle file is now `maplibre-gl.mjs` (and `maplibre-gl-worker.mjs`). If your build tooling or test runner still uses `require()` (plain Node scripts, test runners that don't transform ESM, server-side code importing the package without a bundler), this surfaces as `ERR_PACKAGE_PATH_NOT_EXPORTED`.
+MapLibre GL JS v6 chỉ được phân phối dưới dạng ES module. Bundle UMD, bản build CSP riêng, và entry CommonJS (`require('maplibre-gl')`) từ v5 đều đã bị loại bỏ. File bundle giờ đây là `maplibre-gl.mjs` (và `maplibre-gl-worker.mjs`). Nếu công cụ build hoặc test runner của bạn vẫn dùng `require()` (các script Node thuần, test runner không transform ESM, code phía server import package mà không qua bundler), lỗi sẽ xuất hiện dưới dạng `ERR_PACKAGE_PATH_NOT_EXPORTED`.
 
-## Imports
+## Import
 
-If you import maplibre-gl from npm with **named imports** (`import {Map} from 'maplibre-gl'`), your imports keep working: v6 resolves to the ESM bundle automatically.
+Nếu bạn import maplibre-gl từ npm bằng **named imports** (`import {Map} from 'maplibre-gl'`), các import của bạn vẫn hoạt động bình thường: v6 sẽ tự động phân giải về bundle ESM.
 
-If you used the **default import** (`import maplibregl from 'maplibre-gl'`), switch to either named imports or a namespace import:
+Nếu bạn dùng **default import** (`import maplibregl from 'maplibre-gl'`), hãy chuyển sang named import hoặc namespace import:
 
 ```ts
 // before
@@ -18,9 +18,9 @@ import * as maplibregl from 'maplibre-gl';
 import {Map, setWorkerUrl} from 'maplibre-gl';
 ```
 
-## `<script>` tag
+## Thẻ `<script>`
 
-If you load maplibre-gl via `<script src>`, switch to a module script:
+Nếu bạn tải maplibre-gl thông qua `<script src>`, hãy chuyển sang dùng module script:
 
 ```html
 <!-- before -->
@@ -32,26 +32,26 @@ If you load maplibre-gl via `<script src>`, switch to a module script:
 </script>
 ```
 
-Pin an explicit major version (e.g. ^6.0.0) rather than `@latest` or an unversioned specifier. Starting with v6, a page pinned to `@latest` goes to a blank gray screen with a 404 in the console.
+Hãy ghim (pin) một phiên bản major cụ thể (ví dụ ^6.0.0) thay vì dùng `@latest` hoặc không chỉ định phiên bản. Kể từ v6, một trang ghim vào `@latest` sẽ hiển thị màn hình xám trống với lỗi 404 trong console.
 
-## `setWorkerUrl()` is bundler-only
+## `setWorkerUrl()` chỉ dành cho bundler
 
-For direct browser ESM (loading from a CDN like unpkg via a `<script type="module">` tag), the worker URL is auto-detected from `import.meta.url` and laundered through a same-origin Blob URL when needed, so no [`setWorkerUrl()`](../API/functions/setWorkerUrl.md) call is required.
+Với ESM trực tiếp trên trình duyệt (tải từ CDN như unpkg thông qua thẻ `<script type="module">`), worker URL được tự động phát hiện từ `import.meta.url` và được chuyển đổi qua một Blob URL cùng origin khi cần, nên không cần gọi [`setWorkerUrl()`](../API/functions/setWorkerUrl.md).
 
-For bundlers (Vite, webpack, esbuild, rspack, Rollup), `import.meta.url` doesn't reliably resolve to the worker file inside the bundler's module graph, so each consumer still needs a one-time `setWorkerUrl()` call. See [Installation](../index.md#installation) for per-bundler snippets.
+Với các bundler (Vite, webpack, esbuild, rspack, Rollup), `import.meta.url` không luôn phân giải chính xác đến file worker bên trong module graph của bundler, nên mỗi ứng dụng vẫn cần gọi `setWorkerUrl()` một lần. Xem [Installation](../index.md#installation) để biết đoạn code mẫu cho từng bundler.
 
-## CSP directives
+## Các chỉ thị CSP
 
-The dedicated CSP bundle from v5 is no longer needed.
+Bundle CSP riêng biệt từ v5 không còn cần thiết nữa.
 
-If you load MapLibre from a CDN cross-origin to your page (e.g. unpkg), the worker is constructed from a same-origin Blob URL, so your CSP needs to allow `blob:` in `worker-src`:
+Nếu bạn tải MapLibre từ một CDN khác origin với trang của bạn (ví dụ unpkg), worker được tạo từ một Blob URL cùng origin, nên CSP của bạn cần cho phép `blob:` trong `worker-src`:
 
 ```
 worker-src 'self' blob: ;
 img-src data: blob: 'self' ;
 ```
 
-If you self-host the worker file (any bundler setup), the worker URL is same-origin and `blob:` is not required:
+Nếu bạn tự host file worker (với bất kỳ cấu hình bundler nào), worker URL sẽ cùng origin và không cần `blob:`:
 
 ```
 worker-src 'self' ;
@@ -60,14 +60,14 @@ img-src data: blob: 'self' ;
 
 ## zoomLevelsToOverscale
 
-In version 5 there was an experimental parameter added to allow slicing vector tiles instead of overscaling them.
-We tested it, and it looks like it fixes a lot of issues in labeling etc.
-It changes rendering and the results of queryRenderedFeatures.
-If you would like to revert to the previous behavior you can set `zoomLevelsToOverscale: undefined` when initializing the map.
+Trong phiên bản 5 có một tham số thử nghiệm (experimental) được thêm vào để cho phép cắt (slicing) vector tile thay vì overscale chúng.
+Chúng tôi đã thử nghiệm và nhận thấy nó khắc phục được khá nhiều vấn đề về labeling (đặt nhãn), v.v.
+Tham số này thay đổi cách render và kết quả của queryRenderedFeatures.
+Nếu bạn muốn quay lại hành vi trước đây, có thể đặt `zoomLevelsToOverscale: undefined` khi khởi tạo bản đồ.
 
-## Nested GeoJSON properties
+## Property GeoJSON lồng nhau (Nested)
 
-Nested objects and arrays in GeoJSON feature properties are now preserved: features returned from events and `queryRenderedFeatures` contain them as real objects instead of JSON strings. If you called `JSON.parse` on such properties, remove it — it now throws `SyntaxError: "[object Object]" is not valid JSON`.
+Các object và array lồng nhau trong property của feature GeoJSON giờ đây được giữ nguyên: các feature trả về từ event và `queryRenderedFeatures` chứa chúng dưới dạng object thực sự thay vì chuỗi JSON. Nếu bạn từng gọi `JSON.parse` trên các property này, hãy loại bỏ nó — vì giờ đây nó sẽ ném ra lỗi `SyntaxError: "[object Object]" is not valid JSON`.
 
 ```diff
 -const info = JSON.parse(e.features[0].properties.info);
@@ -76,19 +76,19 @@ Nested objects and arrays in GeoJSON feature properties are now preserved: featu
 
 ## pragma mapbox
 
-In case you were using `#pragma mapbox` in your shared code please replace it with `#pragma maplibre`.
+Nếu bạn đang sử dụng `#pragma mapbox` trong code dùng chung (shared code), hãy thay thế bằng `#pragma maplibre`.
 ```diff
 -#pragma mapbox
 +#pragma maplibre
 ```
 
-## Events
+## Sự kiện (Events)
 
-All events are now classes, it is advised not to use `instanceof` but instead check the `type` field. Since the change was from types to classes this shouldn't be a problem in most code bases.
+Tất cả các event giờ đây đều là class; khuyến nghị không nên dùng `instanceof` mà thay vào đó kiểm tra trường `type`. Vì thay đổi này chỉ chuyển từ type sang class nên hầu hết các codebase sẽ không gặp vấn đề gì.
 
 ### styleimagemissing
 
-In v6, `styleimagemissing` listeners can no longer resolve the current image request by calling `Map#addImage`. To migrate a listener that supplies missing images, replace it with [`Map#setMissingStyleImageResolver`](../API/classes/Map.md#setmissingstyleimageresolver):
+Trong v6, các listener `styleimagemissing` không còn có thể resolve yêu cầu ảnh hiện tại bằng cách gọi `Map#addImage` nữa. Để di chuyển một listener chuyên cung cấp ảnh còn thiếu, hãy thay thế nó bằng [`Map#setMissingStyleImageResolver`](../API/classes/Map.md#setmissingstyleimageresolver):
 
 ```diff
 -map.on('styleimagemissing', ({id}) => {
@@ -97,12 +97,13 @@ In v6, `styleimagemissing` listeners can no longer resolve the current image req
  });
 ```
 
-The resolver can be synchronous or asynchronous. For asynchronous loading, call `Map#addImage` before the resolver's promise settles. The `styleimagemissing` event can still be used to observe images that remain unresolved.
+Resolver có thể đồng bộ (synchronous) hoặc bất đồng bộ (asynchronous). Với việc tải bất đồng bộ, hãy gọi `Map#addImage` trước khi promise của resolver hoàn tất (settle). Sự kiện `styleimagemissing` vẫn có thể được dùng để theo dõi các ảnh chưa được resolve.
 
-## WebGL2 is now required
+## WebGL2 giờ đây là bắt buộc
 
-WebGL1 support has been removed; WebGL2 is now required. A browser or device that does not support WebGL2 will fail to render a map under v6. When WebGL2 is unavailable, the `Map` constructor throws a `GPUInitializationError` (check with `instanceof GPUInitializationError`, exported from `maplibre-gl`) instead of returning a map.
+Hỗ trợ WebGL1 đã bị loại bỏ; giờ đây WebGL2 là bắt buộc. Trình duyệt hoặc thiết bị không hỗ trợ WebGL2 sẽ không thể render bản đồ với v6. Khi WebGL2 không khả dụng, constructor `Map` sẽ ném ra lỗi `GPUInitializationError` (kiểm tra bằng `instanceof GPUInitializationError`, được export từ `maplibre-gl`) thay vì trả về một map.
 
-## `map.transform` was removed
+## `map.transform` đã bị loại bỏ
 
-The internal `map.transform` property has been removed; `Map` now composes a `Camera` rather than extending it. Use `Map`'s public API instead of reaching into `transform`. If you relied on something `transform` exposed that isn't covered by the public API, please open an issue or PR.
+Property nội bộ `map.transform` đã bị loại bỏ; giờ đây `Map` compose (kết hợp) một `Camera` thay vì extend (kế thừa) nó. Hãy dùng public API của `Map` thay vì truy cập trực tiếp vào `transform`. Nếu bạn phụ thuộc vào điều gì đó mà `transform` từng cung cấp nhưng không có trong public API, vui lòng mở một issue hoặc PR.
+</content>

@@ -1,10 +1,10 @@
-# Introduction
+# Giới thiệu
 
-MapLibre GL JS is a TypeScript library that uses WebGL to render interactive maps from vector tiles in a browser.
-The map’s appearance is controlled by a style document whose structure and properties are defined by the [MapLibre Style Spec](https://maplibre.org/maplibre-style-spec).
-It is part of the MapLibre ecosystem, with a counterpart for Android, iOS and other platforms called [MapLibre Native](https://github.com/maplibre/maplibre-native).
+MapLibre GL JS là một thư viện TypeScript sử dụng WebGL để hiển thị bản đồ tương tác từ vector tile trong trình duyệt.
+Giao diện của bản đồ được điều khiển bởi một tài liệu style (style document), có cấu trúc và thuộc tính được định nghĩa bởi [MapLibre Style Spec](https://maplibre.org/maplibre-style-spec).
+Đây là một phần của hệ sinh thái MapLibre, có phiên bản tương ứng cho Android, iOS và các nền tảng khác gọi là [MapLibre Native](https://github.com/maplibre/maplibre-native).
 
-## Quickstart
+## Bắt đầu nhanh
 
 <iframe src="./examples/display-a-globe-with-a-vector-map.html" width="100%" height="400px" style="border:none"></iframe>
 
@@ -23,32 +23,32 @@ It is part of the MapLibre ecosystem, with a counterpart for Android, iOS and ot
 </script>
 ```
 
-## Reading this documentation
+## Đọc tài liệu này
 
-This documentation is divided into several sections:
+Tài liệu này được chia thành nhiều phần:
 
-* [**Main**](./API/README.md) - The Main section holds the following classes
-    * [`Map`](./API/classes/Map.md) object is the map on your page. It lets you access methods and properties for interacting with the map's style and layers, respond to events, and manipulate the user's perspective with the camera.
-    * [`Global Functions`](./API/functions/addProtocol.md) let you set global properties and options that you might want to access while initializing your map or accessing information about its status.
-* [**Markers and Controls**](./API/README.md#markers-and-controls) - This section describes the user interface elements that you can add to your map. The items in this section exist outside of the map's `canvas` element. This consists of `Marker`, `Popup` and all the controls.
-* [**Geography and geometry**](./API/README.md#geography-and-geometry) - This section includes general utilities and types that relate to working with and manipulating geographic information or geometries.
-* [**User interaction handlers**](./API/README.md#handlers) - The items in this section relate to the ways in which the map responds to user input.
-* [**Sources**](./API/README.md#sources) - This section describes the source types MapLibre GL JS can handle besides the ones described in the [MapLibre Style Specification](https://maplibre.org/maplibre-style-spec/).
-* [**Event Related**](./API/README.md#event-related) - This section describes the different types of events that MapLibre GL JS can raise.
+* [**Main**](./API/README.md) - Phần Main (Chính) chứa các lớp sau
+    * Đối tượng [`Map`](./API/classes/Map.md) chính là bản đồ trên trang của bạn. Nó cho phép bạn truy cập các phương thức và thuộc tính để tương tác với style và layer của bản đồ, phản hồi sự kiện, và điều chỉnh góc nhìn của người dùng thông qua camera.
+    * [`Global Functions`](./API/functions/addProtocol.md) (các hàm toàn cục) cho phép bạn thiết lập các thuộc tính và tùy chọn toàn cục mà bạn có thể cần truy cập khi khởi tạo bản đồ hoặc lấy thông tin về trạng thái của nó.
+* [**Markers and Controls**](./API/README.md#markers-and-controls) (Marker và Control) - Phần này mô tả các thành phần giao diện người dùng mà bạn có thể thêm vào bản đồ. Các mục trong phần này tồn tại bên ngoài phần tử `canvas` của bản đồ. Bao gồm `Marker`, `Popup` và tất cả các control.
+* [**Geography and geometry**](./API/README.md#geography-and-geometry) (Địa lý và hình học) - Phần này bao gồm các tiện ích và kiểu dữ liệu chung liên quan đến việc làm việc và thao tác với thông tin địa lý hoặc hình học.
+* [**User interaction handlers**](./API/README.md#handlers) (Trình xử lý tương tác người dùng) - Các mục trong phần này liên quan đến cách bản đồ phản hồi lại thao tác của người dùng.
+* [**Sources**](./API/README.md#sources) (Nguồn dữ liệu) - Phần này mô tả các loại source mà MapLibre GL JS có thể xử lý, bên cạnh những loại đã được mô tả trong [MapLibre Style Specification](https://maplibre.org/maplibre-style-spec/).
+* [**Event Related**](./API/README.md#event-related) (Liên quan đến sự kiện) - Phần này mô tả các loại sự kiện khác nhau mà MapLibre GL JS có thể phát sinh.
 
-Each section describes classes or objects as well as their **properties**, **parameters**, **instance members**, and associated **events**. Many sections also include inline code examples and related resources.
+Mỗi phần mô tả các lớp hoặc đối tượng cùng với **properties** (thuộc tính), **parameters** (tham số), **instance members** (thành viên instance), và các **events** (sự kiện) liên quan. Nhiều phần cũng bao gồm ví dụ code trực tiếp và các tài nguyên liên quan.
 
-In the examples, we use vector tiles from our [Demo tiles repository](https://github.com/maplibre/demotiles) and from [MapTiler](https://maptiler.com). Get your own API key if you want to use MapTiler data in your project.
+Trong các ví dụ, chúng tôi sử dụng vector tile từ [Demo tiles repository](https://github.com/maplibre/demotiles) của chúng tôi và từ [MapTiler](https://maptiler.com). Hãy lấy API key riêng nếu bạn muốn dùng dữ liệu MapTiler trong dự án của mình.
 
 ## npm
 
-Install the MapLibre GL JS package via [npm](https://www.npmjs.com/package/maplibre-gl).
+Cài đặt package MapLibre GL JS thông qua [npm](https://www.npmjs.com/package/maplibre-gl).
 
 ```bash
 npm install maplibre-gl
 ```
 
-You can then import the MapLibre GL JS module in your project.
+Sau đó bạn có thể import module MapLibre GL JS vào dự án của mình.
 
 ```html
 <div id="map"></div>
@@ -66,23 +66,23 @@ const map = new Map({
 });
 ```
 
-See the [ESM](#esm) section below for setting up the worker URL with your bundler.
+Xem phần [ESM](#esm) bên dưới để thiết lập worker URL với bundler của bạn.
 
 ## ESM
 
-MapLibre GL JS v6 ships as ES modules only (`maplibre-gl.mjs`). The `"module"` field in `package.json` points at the ESM bundle, so bundlers pick it up automatically.
+MapLibre GL JS v6 chỉ được phân phối dưới dạng ES module (`maplibre-gl.mjs`). Trường `"module"` trong `package.json` trỏ đến bundle ESM, nên các bundler sẽ tự động nhận diện.
 
-For minimal runnable apps per bundler (Vite, webpack, esbuild, Rollup, Turbopack), see [`test/integration/bundler/`](https://github.com/maplibre/maplibre-gl-js/tree/main/test/integration/bundler).
+Để xem các ứng dụng chạy được tối thiểu cho từng bundler (Vite, webpack, esbuild, Rollup, Turbopack), xem [`test/integration/bundler/`](https://github.com/maplibre/maplibre-gl-js/tree/main/test/integration/bundler).
 
-Upgrading from v5? See the [v5 to v6 migration guide](./guides/v5-to-v6-migration-guide.md).
+Đang nâng cấp từ v5? Xem [hướng dẫn di chuyển từ v5 sang v6](./guides/v5-to-v6-migration-guide.md).
 
-### Installation
+### Cài đặt
 
-Pick your setup:
+Chọn cách thiết lập phù hợp với bạn:
 
 === "Vite"
 
-    Use Vite's `?worker&url` query to get a bundled, self-contained worker URL:
+    Sử dụng query `?worker&url` của Vite để lấy một worker URL đã được đóng gói (bundle), độc lập (self-contained):
 
     ```ts
     import {Map, setWorkerUrl} from 'maplibre-gl';
@@ -94,14 +94,14 @@ Pick your setup:
     const map = new Map({/* … */});
     ```
 
-    Use `?worker&url` rather than plain `?url`: the dist worker imports its
-    sibling `maplibre-gl-shared.mjs`, and `?url` emits the worker file verbatim
-    in production builds without that sibling — the worker then fails on its
-    first import and no vector tiles load. `?worker&url` routes the file
-    through Vite's worker pipeline, emitting a self-contained chunk. Dev mode
-    works with either.
+    Hãy dùng `?worker&url` thay vì `?url` thông thường: worker trong bản dist import file
+    `maplibre-gl-shared.mjs` đi kèm, và `?url` sẽ xuất ra file worker nguyên bản trong các
+    bản build production mà không kèm theo file đó — khi đó worker sẽ lỗi ngay lần import
+    đầu tiên và không có vector tile nào được tải. `?worker&url` sẽ định tuyến file qua
+    pipeline worker của Vite, tạo ra một chunk độc lập. Ở chế độ dev, cả hai cách đều
+    hoạt động được.
 
-    If your build uses SSR (TanStack Start, Astro, etc.) and Vite resolves the CommonJS entry on the server, also add:
+    Nếu bản build của bạn sử dụng SSR (TanStack Start, Astro, v.v.) và Vite phân giải entry CommonJS ở phía server, hãy thêm:
 
     ```ts title="vite.config.ts"
     export default defineConfig({
@@ -120,9 +120,9 @@ Pick your setup:
     const map = new Map({/* … */});
     ```
 
-    rspack and rsbuild use the same pattern.
+    rspack và rsbuild sử dụng cùng cách làm này.
 
-    Next.js is an exception, including in its `next build --webpack` mode. See the Turbopack tab.
+    Next.js là một ngoại lệ, kể cả ở chế độ `next build --webpack`. Xem tab Turbopack.
 
 === "esbuild"
 
@@ -180,9 +180,9 @@ Pick your setup:
 
 === "Turbopack"
 
-    Turbopack ships as the default bundler in Next.js, which is where you are most likely to meet it, so the setup below is written for a Next.js app.
+    Turbopack là bundler mặc định trong Next.js — đây cũng là nơi bạn nhiều khả năng gặp nó nhất, nên phần thiết lập dưới đây được viết cho một ứng dụng Next.js.
 
-    Turbopack turns `new URL('maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url)` into a hashed asset without emitting the worker's `maplibre-gl-shared.mjs` sibling next to it. The worker then fails on its first import, and the map mounts but never requests a tile. Serve both files from `public/` instead and point `setWorkerUrl` at the worker:
+    Turbopack biến `new URL('maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url)` thành một asset có hash mà không xuất kèm file `maplibre-gl-shared.mjs` đi cùng worker. Khi đó worker sẽ lỗi ngay lần import đầu tiên, bản đồ vẫn mount được nhưng không bao giờ gửi yêu cầu tải tile. Thay vào đó, hãy phục vụ cả hai file từ thư mục `public/` và trỏ `setWorkerUrl` đến worker:
 
     ```js title="scripts/copy-maplibre-worker.mjs"
     import {copyFileSync, mkdirSync} from 'node:fs';
@@ -218,18 +218,18 @@ Pick your setup:
     const map = new Map({/* … */});
     ```
 
-    The script copies both files, not just the worker.
-    This is because the worker imports `maplibre-gl-shared.mjs` by relative path, so both have to land in the same directory.
+    Script này copy cả hai file, không chỉ riêng worker.
+    Lý do là vì worker import `maplibre-gl-shared.mjs` bằng đường dẫn tương đối, nên cả hai file phải nằm cùng một thư mục.
 
-    The copy happens at build time, from `node_modules`, so it always matches the installed version.
-    npm lifecycle prefixes match the exact script name, so `prebuild` and `predev` run before `build` and `dev`, but **not** before a custom script like `build:local` - add a matching `pre` hook for those if necessary.
-    `postinstall` alone won't do it since package managers skip lifecycle scripts when an install has no work to do, and `--ignore-scripts` skips them entirely.
+    Việc copy diễn ra tại thời điểm build, lấy từ `node_modules`, nên luôn khớp với phiên bản đã cài đặt.
+    Các tiền tố lifecycle của npm khớp chính xác với tên script, nên `prebuild` và `predev` sẽ chạy trước `build` và `dev`, nhưng **không** chạy trước một script tùy chỉnh như `build:local` - nếu cần, hãy thêm hook `pre` tương ứng cho các script đó.
+    Chỉ dùng `postinstall` thôi thì chưa đủ, vì trình quản lý package sẽ bỏ qua lifecycle script khi việc cài đặt không có gì thay đổi, và `--ignore-scripts` sẽ bỏ qua chúng hoàn toàn.
 
-    Next.js needs this in both of its bundler modes, `next build` (Turbopack) and `next build --webpack`, since the asset handling above is Next's rather than Turbopack's alone.
+    Next.js cần thiết lập này ở cả hai chế độ bundler của nó, `next build` (Turbopack) và `next build --webpack`, vì cách xử lý asset nêu trên là do Next.js quyết định chứ không chỉ riêng Turbopack.
 
 === "CDN / No bundler"
 
-    Load MapLibre directly from UNPKG as an ES module via a `<script type="module">` tag. See [unpkg.com](https://unpkg.com) for instructions on selecting specific versions and semver ranges.
+    Tải MapLibre trực tiếp từ UNPKG dưới dạng ES module thông qua thẻ `<script type="module">`. Xem [unpkg.com](https://unpkg.com) để biết hướng dẫn chọn phiên bản cụ thể và dải semver.
 
     ```html
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^6.3.0/dist/maplibre-gl.css" />
@@ -246,29 +246,30 @@ Pick your setup:
     </script>
     ```
 
-    The worker is auto-detected from the imported module's URL and laundered through a same-origin Blob URL, so cross-origin CDN loading works out of the box.
+    Worker được tự động phát hiện từ URL của module đã import, và được chuyển đổi qua một Blob URL cùng origin, nên việc tải từ CDN khác origin hoạt động được ngay mà không cần cấu hình thêm.
 
-    Under a strict CSP that disallows `blob:` in `worker-src`, set the worker URL explicitly to a same-origin location:
+    Trong trường hợp CSP nghiêm ngặt không cho phép `blob:` trong `worker-src`, hãy đặt worker URL một cách tường minh về một vị trí cùng origin:
 
     ```js
     maplibregl.setWorkerUrl('/path/to/maplibre-gl-worker.mjs');
     ```
 
-    See the [Display a map](./examples/display-a-map.md) example for a runnable version.
+    Xem ví dụ [Display a map](./examples/display-a-map.md) để có phiên bản chạy được đầy đủ.
 
-## CSP Directives
+## Các chỉ thị CSP
 
-As a mitigation for Cross-Site Scripting and other types of web security vulnerabilities, you may use a [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/Security/CSP) to specify security policies for your website. If you do, MapLibre GL JS requires the following CSP directives:
+Để giảm thiểu nguy cơ Cross-Site Scripting và các lỗ hổng bảo mật web khác, bạn có thể sử dụng [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/Security/CSP) để chỉ định các chính sách bảo mật cho website của mình. Nếu làm vậy, MapLibre GL JS yêu cầu các chỉ thị CSP sau:
 
 ```
 worker-src 'self' ;
 img-src data: blob: 'self' ;
 ```
 
-## MapLibre CSS
+## CSS của MapLibre
 
-The CSS referenced in the Quickstart is used to style DOM elements created by MapLibre code. Without the CSS, elements like Popups and Markers won't work.
+CSS được nhắc đến trong phần Bắt đầu nhanh dùng để tạo style cho các phần tử DOM do MapLibre tạo ra. Nếu thiếu CSS này, các phần tử như Popup và Marker sẽ không hoạt động đúng.
 
-Including it with a `<link>` in the head of the document via the UNPKG CDN is the simplest and easiest way to provide the CSS, but it is also bundled in the MapLibre module, meaning that if you have a bundler that can handle CSS, you can import the CSS from `maplibre-gl/dist/maplibre-gl.css`.
+Việc thêm CSS bằng thẻ `<link>` trong phần head của tài liệu thông qua UNPKG CDN là cách đơn giản và dễ dàng nhất để cung cấp CSS, nhưng CSS này cũng đã được đóng gói sẵn trong module MapLibre — nghĩa là nếu bạn có một bundler hỗ trợ xử lý CSS, bạn có thể import CSS trực tiếp từ `maplibre-gl/dist/maplibre-gl.css`.
 
-Note too that if the CSS isn't available by the first render, as soon as the CSS is provided, the DOM elements that depend on this CSS should recover.
+Cũng lưu ý rằng nếu CSS chưa sẵn sàng tại lần render đầu tiên, thì ngay khi CSS được cung cấp, các phần tử DOM phụ thuộc vào CSS này sẽ tự khôi phục lại đúng giao diện.
+</content>

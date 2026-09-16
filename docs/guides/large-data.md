@@ -1,69 +1,69 @@
-# Optimising MapLibre Performance: Tips for Large GeoJSON Datasets
+# Tối ưu hiệu năng MapLibre: Mẹo xử lý tập dữ liệu GeoJSON lớn
 
-Performance is a critical aspect of providing users with a smooth and responsive experience. This guide focuses on techniques for improving the performance of MapLibre, particularly when dealing with large datasets in GeoJSON format. We'll categorise our strategies into two key areas:
+Hiệu năng là một khía cạnh quan trọng để mang lại trải nghiệm mượt mà, phản hồi nhanh cho người dùng. Hướng dẫn này tập trung vào các kỹ thuật cải thiện hiệu năng của MapLibre, đặc biệt khi làm việc với các tập dữ liệu lớn ở định dạng GeoJSON. Chúng ta sẽ phân loại các chiến lược thành hai nhóm chính:
 
-1. Loading the data
-1. Visualizing the data
+1. Tải dữ liệu
+1. Hiển thị dữ liệu
 
-## Loading the Data
+## Tải dữ liệu
 
-### Making the File Smaller
+### Giảm kích thước file
 
-When working with large GeoJSON datasets, one of the most effective ways to enhance loading performance is to reduce the data's size. You can implement the following approaches with packages such as [Turf](https://turfjs.org/) or web tools such as [Reduce GeoJSON](https://reducegeojson.radicaldata.org/) and [Mapshaper](https://github.com/mbloch/mapshaper).
+Khi làm việc với các tập dữ liệu GeoJSON lớn, một trong những cách hiệu quả nhất để cải thiện hiệu năng tải là giảm kích thước dữ liệu. Bạn có thể áp dụng các cách sau bằng các package như [Turf](https://turfjs.org/) hoặc các công cụ web như [Reduce GeoJSON](https://reducegeojson.radicaldata.org/) và [Mapshaper](https://github.com/mbloch/mapshaper).
 
-#### Removing unused properties
+#### Loại bỏ các property không dùng đến
 
-GeoJSON files often contain numerous properties that are not essential for your map's functionality. By eliminating any unused or redundant properties, you can significantly reduce the file size, leading to faster loading times.
+Các file GeoJSON thường chứa rất nhiều property không thực sự cần thiết cho chức năng của bản đồ. Bằng cách loại bỏ các property không dùng đến hoặc dư thừa, bạn có thể giảm đáng kể kích thước file, giúp thời gian tải nhanh hơn.
 
-#### Reduce precision of coordinates
+#### Giảm độ chính xác của tọa độ
 
-GeoJSON coordinates typically default to extreme precision, often with 15-17 decimal places, which is on an atomic scale. For most practical applications, you can reduce the coordinate precision to around 6 decimals, roughly equivalent to a [scale of around 1cm](https://en.wikipedia.org/wiki/Decimal_degrees#Precision). This reduces the file size without compromising usability.
+Tọa độ trong GeoJSON thường mặc định có độ chính xác cực cao, thường lên tới 15-17 chữ số thập phân — mức chính xác ở quy mô nguyên tử. Với hầu hết ứng dụng thực tế, bạn có thể giảm độ chính xác tọa độ xuống khoảng 6 chữ số thập phân, tương đương với [độ chính xác khoảng 1cm](https://en.wikipedia.org/wiki/Decimal_degrees#Precision). Điều này giúp giảm kích thước file mà không ảnh hưởng đến tính khả dụng.
 
-#### Simplify geometry
+#### Đơn giản hóa geometry
 
-If your GeoJSON contains geometries (not just points), consider using various algorithms to simplify the geometry. Tools like [Mapshaper](https://github.com/mbloch/mapshaper) provide user-friendly interfaces for this task.
+Nếu GeoJSON của bạn chứa các geometry (không chỉ là điểm), hãy cân nhắc sử dụng các thuật toán khác nhau để đơn giản hóa geometry. Các công cụ như [Mapshaper](https://github.com/mbloch/mapshaper) cung cấp giao diện thân thiện cho việc này.
 
-#### Minify
+#### Rút gọn (Minify)
 
-Minifying the GeoJSON data by removing unnecessary whitespace can further decrease the file size, aiding in quicker data transmission.
+Rút gọn (minify) dữ liệu GeoJSON bằng cách loại bỏ khoảng trắng không cần thiết có thể giảm thêm kích thước file, giúp truyền dữ liệu nhanh hơn.
 
-#### Data Compression
+#### Nén dữ liệu
 
-Another approach is to compress the GeoJSON data and send the zipped file to the user's browser. While this introduces a minor tradeoff between processing and file size, it's generally acceptable, considering the efficiency of modern JavaScript.
+Một cách khác là nén dữ liệu GeoJSON và gửi file đã nén đến trình duyệt của người dùng. Cách này tạo ra một đánh đổi nhỏ giữa việc xử lý và kích thước file, nhưng nhìn chung vẫn chấp nhận được, nhờ hiệu suất của JavaScript hiện đại.
 
-### Data Chunking
+### Chia nhỏ dữ liệu (Data Chunking)
 
-If your GeoJSON dataset is still quite large after reducing its size, consider splitting it into smaller, manageable chunks. Even 2 or 3 can be beneficial. These split datasets can be added to the map as normal with `addSource()` and `addLayer()`.
+Nếu tập dữ liệu GeoJSON của bạn vẫn còn khá lớn sau khi đã giảm kích thước, hãy cân nhắc chia nhỏ nó thành các phần (chunk) nhỏ hơn, dễ quản lý hơn. Ngay cả việc chia thành 2 hoặc 3 phần cũng có thể mang lại lợi ích. Các tập dữ liệu đã chia này có thể được thêm vào bản đồ như bình thường bằng `addSource()` và `addLayer()`.
 
-This technique can be particularly useful when there are parts of the dataset that have different properties. For example, if the map starts zoomed into an geographic area, the data within this geography could be one chunk and the rest could be another chunk. Similarly, if one part of the dataset has live updates and the rest is largely static, it could make sense to place these two parts into separate chunks.
+Kỹ thuật này đặc biệt hữu ích khi các phần khác nhau của tập dữ liệu có đặc tính khác nhau. Ví dụ, nếu bản đồ khởi đầu với zoom vào một khu vực địa lý cụ thể, dữ liệu trong khu vực đó có thể là một chunk, còn phần còn lại là một chunk khác. Tương tự, nếu một phần dữ liệu được cập nhật liên tục (live) còn phần còn lại phần lớn là tĩnh, việc tách hai phần này thành các chunk riêng biệt có thể hợp lý.
 
-Data chunking is more impactful on desktop browsers than mobile browsers.
+Việc chia nhỏ dữ liệu mang lại hiệu quả rõ rệt hơn trên trình duyệt desktop so với trình duyệt di động.
 
-### Data Streaming
+### Streaming dữ liệu
 
-Implementing data streaming techniques can further enhance loading performance. Rather than loading the entire dataset at once, data streaming allows you to load smaller portions as the user interacts with the map. This approach minimises the initial loading time and provides a more responsive experience. A template for data streaming can be found in the [Update a feature in realtime](../examples/update-a-feature-in-realtime.md) example.
+Áp dụng các kỹ thuật streaming dữ liệu có thể cải thiện thêm hiệu năng tải. Thay vì tải toàn bộ tập dữ liệu cùng lúc, streaming dữ liệu cho phép bạn tải từng phần nhỏ khi người dùng tương tác với bản đồ. Cách tiếp cận này giúp giảm thiểu thời gian tải ban đầu và mang lại trải nghiệm phản hồi nhanh hơn. Bạn có thể tham khảo mẫu streaming dữ liệu trong ví dụ [Update a feature in realtime](../examples/update-a-feature-in-realtime.md).
 
-### Store GeoJSON at URL
+### Lưu trữ GeoJSON tại một URL
 
-For improved performance in MapLibre, it's advisable to load your GeoJSON data from a data URL rather than embedding it directly in your JavaScript code. This practice helps reduce the memory overhead on the client-side.
+Để cải thiện hiệu năng trong MapLibre, bạn nên tải dữ liệu GeoJSON từ một URL dữ liệu thay vì nhúng trực tiếp vào code JavaScript. Cách làm này giúp giảm chi phí bộ nhớ ở phía client.
 
-### Vector Tiling
+### Chuyển sang Vector Tile
 
-Consider converting your GeoJSON data into vector tiles, which are specifically designed for efficient rendering. An example is available on how to [add a vector tile source](../examples/add-a-vector-tile-source.md).
+Hãy cân nhắc chuyển đổi dữ liệu GeoJSON của bạn thành vector tile, vốn được thiết kế chuyên biệt để render hiệu quả. Có sẵn một ví dụ hướng dẫn cách [thêm một vector tile source](../examples/add-a-vector-tile-source.md).
 
-### Tiling on the server
+### Tiling ở phía server
 
-For even larger datasets you can use a tool like [Martin](https://maplibre.org/martin/) to turn a database into tiles on the server side. These tiles can then be shown directly to the user. A [demo of Martin](https://martin.maplibre.org/) shows it comfortably handling a 13GB database. However, this approach will require more setup than the others.
+Với các tập dữ liệu thậm chí còn lớn hơn, bạn có thể dùng công cụ như [Martin](https://maplibre.org/martin/) để chuyển một database thành tile ngay ở phía server. Các tile này sau đó có thể được hiển thị trực tiếp cho người dùng. [Bản demo của Martin](https://martin.maplibre.org/) cho thấy nó xử lý thoải mái một database dung lượng 13GB. Tuy nhiên, cách tiếp cận này đòi hỏi nhiều công sức thiết lập hơn các cách khác.
 
-## Visualising the Data
+## Hiển thị dữ liệu
 
-Once the data is loaded, to ensure a smooth user experience, it's essential to optimise how you visualise the data on the map.
+Sau khi dữ liệu đã được tải, để đảm bảo trải nghiệm người dùng mượt mà, điều quan trọng là phải tối ưu cách bạn hiển thị dữ liệu trên bản đồ.
 
-### Cluster
+### Gộp nhóm (Cluster)
 
-One simple approach is to visualise fewer points. If we are using a GeoJSON source (i.e. not vector tiles), we can use 'clustering' to group nearby points together. This approach reduces the number of features displayed on the map, improving rendering performance and maintaining map readability.
+Một cách đơn giản là hiển thị ít điểm hơn. Nếu bạn đang dùng GeoJSON source (tức là không phải vector tile), bạn có thể dùng 'clustering' (gộp nhóm) để nhóm các điểm gần nhau lại. Cách tiếp cận này giúp giảm số lượng feature được hiển thị trên bản đồ, cải thiện hiệu năng render và vẫn giữ được khả năng đọc hiểu bản đồ.
 
-To do this, when we add the data, we can adjust the [cluster options](../API/type-aliases/SetClusterOptions.md). For example:
+Để làm điều này, khi thêm dữ liệu, bạn có thể điều chỉnh các [tùy chọn cluster](../API/type-aliases/SetClusterOptions.md). Ví dụ:
 
 ```javascript
 map.addSource('earthquakes', {
@@ -75,29 +75,29 @@ map.addSource('earthquakes', {
         });
 ```
 
-You can see a full example here: [Create and style clusters](../examples/create-and-style-clusters.md).
+Bạn có thể xem ví dụ đầy đủ tại đây: [Create and style clusters](../examples/create-and-style-clusters.md).
 
-### Allow Overlap
+### Cho phép chồng lấn (Allow Overlap)
 
-By default, Maplibre calculates if features such as points, texts or icons are overlapping. This can be computationally intensive, particularly when there are a lot of features. Changing the [overlap mode](https://maplibre.org/maplibre-style-spec/layers/#layout-symbol-icon-allow-overlap) so that all points are shown and no overlapping is checked can significantly reduce this.
+Theo mặc định, MapLibre sẽ tính toán xem các feature như điểm, chữ, hoặc icon có bị chồng lấn lên nhau hay không. Việc này có thể tốn nhiều tài nguyên tính toán, đặc biệt khi có nhiều feature. Thay đổi [overlap mode](https://maplibre.org/maplibre-style-spec/layers/#layout-symbol-icon-allow-overlap) để tất cả các điểm đều được hiển thị và không kiểm tra chồng lấn nữa có thể giảm đáng kể chi phí này.
 
-### Simplify Styling
+### Đơn giản hóa style
 
-Complex and intricate map styles can slow down rendering, especially when working with large datasets. Simplify your map styles by reducing the number of layers, symbols, and complex features, and use simpler symbology where appropriate.
+Các style bản đồ phức tạp, chi tiết có thể làm chậm quá trình render, đặc biệt khi làm việc với tập dữ liệu lớn. Hãy đơn giản hóa style bản đồ của bạn bằng cách giảm số lượng layer, symbol và các feature phức tạp, đồng thời dùng ký hiệu (symbology) đơn giản hơn khi phù hợp.
 
-### Zoom Levels
+### Mức Zoom (Zoom Levels)
 
-Optimising your zoom levels ensures that the map loads efficiently and displays the right level of detail at different zoom levels, contributing to a smoother user experience.
+Việc tối ưu các mức zoom giúp đảm bảo bản đồ tải hiệu quả và hiển thị đúng mức độ chi tiết ở từng mức zoom khác nhau, góp phần mang lại trải nghiệm người dùng mượt mà hơn.
 
-#### Max Zoom Level
+#### Mức Zoom tối đa (Max Zoom Level)
 
-To improve map performance during panning and zooming, set the maxZoom option on your GeoJSON source to a value lower than the default 22. For most point sources, a maxZoom value of 12 strikes a good balance between precision and speed.
+Để cải thiện hiệu năng bản đồ khi pan và zoom, hãy đặt tùy chọn maxZoom trên GeoJSON source của bạn về một giá trị thấp hơn mặc định (22). Với hầu hết các source dạng điểm, giá trị maxZoom là 12 mang lại sự cân bằng tốt giữa độ chính xác và tốc độ.
 
-#### Min Zoom Level
+#### Mức Zoom tối thiểu (Min Zoom Level)
 
-Adjust the minZoom property on the layer that references the GeoJSON source to a value greater than 0. This setting prevents the map from attempting to load and render tiles at low zoom levels, which is often unnecessary because there aren't enough screen pixels to display every feature of a large dataset. By adjusting the minZoom property, you'll achieve a faster map load and improved rendering performance.
+Điều chỉnh property minZoom trên layer tham chiếu đến GeoJSON source về một giá trị lớn hơn 0. Thiết lập này ngăn bản đồ cố gắng tải và render tile ở các mức zoom thấp, vốn thường không cần thiết vì không đủ pixel trên màn hình để hiển thị hết mọi feature của một tập dữ liệu lớn. Bằng cách điều chỉnh property minZoom, bạn sẽ đạt được tốc độ tải bản đồ nhanh hơn và hiệu năng render được cải thiện.
 
-You can implement them both as follows:
+Bạn có thể áp dụng cả hai như sau:
 
 ```javascript
 let map = new maplibregl.Map({
@@ -106,3 +106,4 @@ let map = new maplibregl.Map({
   minZoom: 5
 });
 ```
+</content>

@@ -1,9 +1,9 @@
-# Style Specifications
+# Đặc tả Style (Style Specifications)
 
-The style spec is the definition language for the visualization of the map.
-It can be fine tuned to show the most amazing maps!
-In order to learn it better the following documentation site was created for it:
+Style spec là ngôn ngữ định nghĩa cách hiển thị (visualization) của bản đồ.
+Nó có thể được tinh chỉnh để tạo ra những bản đồ tuyệt đẹp nhất!
+Để tìm hiểu sâu hơn, trang tài liệu sau đây đã được tạo ra:
 
 [Style Specifications](https://maplibre.org/maplibre-style-spec/)
 
-Enjoy!
+Chúc bạn tận hưởng!

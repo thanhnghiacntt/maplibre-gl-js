@@ -1,84 +1,84 @@
-# Contributing to MapLibre GL JS
+# Đóng góp cho MapLibre GL JS
 
-Hi, and thanks in advance for contributing to MapLibre GL JS. Here's how we work. Please follow these conventions when submitting an issue or pull request.
+Xin chào, và cảm ơn bạn trước vì đã đóng góp cho MapLibre GL JS. Dưới đây là cách chúng tôi làm việc. Vui lòng tuân theo các quy ước này khi gửi issue hoặc pull request.
 
-## Do not violate Mapbox copyright!
+## Không được vi phạm bản quyền của Mapbox!
 
-In December 2020 Mapbox decided to publish future versions of mapbox-gl-js under a proprietary license. **You are not allowed to backport code from Mapbox projects which has been contributed under this new license**. Unauthorized backports are the biggest threat to the MapLibre project. If you are unsure about this issue, [please ask](https://github.com/maplibre/maplibre-gl-js/discussions)!
+Vào tháng 12 năm 2020, Mapbox đã quyết định phát hành các phiên bản mapbox-gl-js trong tương lai theo giấy phép độc quyền (proprietary license). **Bạn không được phép backport code từ các dự án Mapbox đã được đóng góp theo giấy phép mới này**. Các backport trái phép là mối đe dọa lớn nhất đối với dự án MapLibre. Nếu bạn không chắc chắn về vấn đề này, [hãy hỏi ở đây](https://github.com/maplibre/maplibre-gl-js/discussions)!
 
-## Best Practices for Contributions
+## Các thực hành tốt nhất khi đóng góp
 
-MapLibre welcomes contributions from community! This codebase is large and complex, and following these best practices will assist the maintainer team in reviewing your contribution. In general, the project values discussion and communication over process and documentation. However, due to the size and complexity of the code, below are some best practices that have aided contributors.
+MapLibre chào đón sự đóng góp từ cộng đồng! Codebase này lớn và phức tạp, và việc tuân theo các thực hành tốt nhất dưới đây sẽ giúp đội ngũ maintainer review đóng góp của bạn dễ dàng hơn. Nhìn chung, dự án đề cao thảo luận và giao tiếp hơn là quy trình và tài liệu. Tuy nhiên, do quy mô và độ phức tạp của code, dưới đây là một số thực hành tốt đã giúp ích cho các contributor.
 
-It is a good idea to discuss proposed changes before proceeding to an issue ticket or PR. The project team is active in the following forums:
+Nên thảo luận về các thay đổi được đề xuất trước khi tiến hành tạo issue ticket hoặc PR. Đội ngũ dự án hoạt động tích cực tại các diễn đàn sau:
 
-* For informal chat discussions, visit the project's [Slack Channel](https://osmus.slack.com/archives/C01G3D28DAB).
-* For discussions whose output and outcomes should not be ephemeral, consider starting a thread on [GitHub Discussions](https://github.com/maplibre/maplibre-gl-js/discussions). This makes it easier to find and reference the discussion in the future.
+* Để trò chuyện không chính thức, hãy ghé [Slack Channel](https://osmus.slack.com/archives/C01G3D28DAB) của dự án.
+* Đối với các thảo luận mà kết quả và nội dung không nên chỉ tồn tại nhất thời, hãy cân nhắc mở một thread trên [GitHub Discussions](https://github.com/maplibre/maplibre-gl-js/discussions). Điều này giúp việc tìm kiếm và tham chiếu lại thảo luận trong tương lai dễ dàng hơn.
 
-MapLibre software relies heavily on automated testing, and the project includes a suite of unit and integration tests. For both new features and bugfixes, contributions should update or add test cases to prevent regressions.
+Phần mềm MapLibre phụ thuộc rất nhiều vào automated testing, và dự án bao gồm một bộ unit test và integration test. Đối với cả tính năng mới lẫn bugfix, các đóng góp nên cập nhật hoặc thêm test case để ngăn ngừa regression.
 
-### New Features
+### Tính năng mới
 
-For new features, it is usually a good idea to start with an issue ticket. If the feature requires changes to the style specification, an issue ticket should be created in the [style specification GitHub repository](https://github.com/maplibre/maplibre-gl-style-spec). Style specification changes are hard to change later, so there will be particularly close scrutiny on changes to the specification.
+Đối với các tính năng mới, thường nên bắt đầu bằng một issue ticket. Nếu tính năng đòi hỏi thay đổi style specification, một issue ticket nên được tạo trong [repository GitHub của style specification](https://github.com/maplibre/maplibre-gl-style-spec). Các thay đổi trong style specification rất khó thay đổi lại sau này, vì vậy sẽ có sự xem xét đặc biệt kỹ lưỡng đối với các thay đổi liên quan đến specification.
 
-If possible, it is beneficial to demonstrate proposed new features and assess the performance implications of the proposed change. You can use `npm install <location-of-maplibre-source-code>` to test changes in an npm context, or `npm run build-prod` to build a .js package for this purpose.
+Nếu có thể, việc demo các tính năng mới được đề xuất và đánh giá tác động hiệu năng của thay đổi đó sẽ rất hữu ích. Bạn có thể dùng `npm install <location-of-maplibre-source-code>` để test thay đổi trong một ngữ cảnh npm, hoặc `npm run build-prod` để build một package .js cho mục đích này.
 
-For more complex proposed features that require deeper discussion, you should consider bringing it up in the [Technical Steering Committee](https://maplibre.org/categories/steering-committee/) meeting for a video discussion with the team about the proposed change. We find that sometimes it's easier to have a focused, face-to-face discussion for more consequential decisions.
+Đối với các tính năng phức tạp hơn cần thảo luận sâu, bạn nên cân nhắc đưa vấn đề ra cuộc họp [Technical Steering Committee](https://maplibre.org/categories/steering-committee/) để trao đổi qua video với đội ngũ về thay đổi được đề xuất. Chúng tôi nhận thấy đôi khi việc thảo luận trực tiếp, tập trung sẽ dễ dàng hơn đối với các quyết định có hệ quả lớn.
 
-The Technical Steering Committee meetings are open to anyone who wants to get involved in the technical direction of the project. These meetings offer a chance for discussion and collaboration on various technical topics. We welcome you to join the meetings if you're interested in getting involved.
+Các cuộc họp Technical Steering Committee mở cho bất kỳ ai muốn tham gia vào định hướng kỹ thuật của dự án. Các cuộc họp này là cơ hội để thảo luận và hợp tác về nhiều chủ đề kỹ thuật khác nhau. Chúng tôi hoan nghênh bạn tham gia các cuộc họp nếu bạn quan tâm đến việc tham gia sâu hơn.
 
-### Bug Fixes
+### Sửa lỗi (Bug Fixes)
 
-If you've identified a significant bug, or one that you don't intend to fix yourself, please write up an issue ticket describing the problem. For minor or straightforward bug fixes, feel free to proceed directly to a PR.
+Nếu bạn phát hiện một lỗi nghiêm trọng, hoặc một lỗi mà bạn không định tự sửa, vui lòng viết một issue ticket mô tả vấn đề. Đối với các lỗi nhỏ hoặc đơn giản, bạn có thể tiến thẳng tới việc tạo PR.
 
-Some best practices for PRs for bugfixes are as follows:
+Một số thực hành tốt cho PR sửa lỗi như sau:
 
-1. Begin by writing a failing test which demonstrates how the current software fails to operate as expected. Commit and push the branch.
-2. Create a draft PR which documents the incorrect behavior. This will show the failing test you've just written in the project's continuous integration and demonstrates the existence of the bug.
-3. Fix the bug, and update the PR with any other notes needed to describe the change in the PR's description.
-4. Don't forget to mark the PR as ready for review when you're satisfied with the code changes.
+1. Bắt đầu bằng việc viết một test thất bại (failing test) để chứng minh phần mềm hiện tại hoạt động không như mong đợi. Commit và push branch.
+2. Tạo một draft PR ghi lại hành vi sai đó. Điều này sẽ hiển thị failing test bạn vừa viết trong continuous integration của dự án và chứng minh sự tồn tại của lỗi.
+3. Sửa lỗi, và cập nhật PR với các ghi chú khác cần thiết để mô tả thay đổi trong phần mô tả PR.
+4. Đừng quên đánh dấu PR là sẵn sàng để review khi bạn hài lòng với các thay đổi code.
 
-This is not intended to be a strict process but rather a guideline that will build confidence that your PR is addressing the problem.
+Đây không phải là một quy trình bắt buộc nghiêm ngặt mà chỉ là hướng dẫn giúp xây dựng sự tin tưởng rằng PR của bạn đang giải quyết đúng vấn đề.
 
-## AI-Assisted Contributions
+## Đóng góp có sự hỗ trợ của AI
 
-MapLibre welcomes contributors who use AI coding tools, but we must be vigilant to not incorporate copyrighted materials. You are responsible for everything you submit. Maintainers will not merge code that the author cannot explain or defend in review, regardless of how it was produced, and will need to close your PR or issue if you are not able to meet this bar.
+MapLibre chào đón các contributor sử dụng công cụ AI coding, nhưng chúng tôi phải cảnh giác để không đưa vào các nội dung có bản quyền. Bạn chịu trách nhiệm cho mọi thứ bạn gửi lên. Maintainer sẽ không merge code mà tác giả không thể giải thích hoặc bảo vệ được khi review, bất kể nó được tạo ra như thế nào, và sẽ phải đóng PR hoặc issue của bạn nếu bạn không đáp ứng được tiêu chuẩn này.
 
-The full policy is at
-[maplibre/maplibre/AI_POLICY.md](https://github.com/maplibre/maplibre/blob/main/AI_POLICY.md). Please review this policy before submitting a PR or bug report.
+Chính sách đầy đủ nằm tại
+[maplibre/maplibre/AI_POLICY.md](https://github.com/maplibre/maplibre/blob/main/AI_POLICY.md). Vui lòng xem lại chính sách này trước khi gửi PR hoặc báo cáo lỗi.
 
-**Disclosure:** Disclose significant AI assistance in your PR (the PR template has a checkbox).
+**Công khai (Disclosure):** Hãy công khai việc sử dụng AI đáng kể trong PR của bạn (mẫu PR có một checkbox cho việc này).
 
-## Preparing your Development Environment
+## Chuẩn bị môi trường phát triển
 
 ### CodeSpaces
 
-By creating a code space you should be able to start working immediately after the post create script finishes running.
-This script basically installs everything written here in the linux part.
+Khi tạo một code space, bạn sẽ có thể bắt đầu làm việc ngay sau khi script post-create chạy xong.
+Script này về cơ bản cài đặt mọi thứ được viết ở đây trong phần dành cho Linux.
 
 ### macOS
 
-Install the Xcode Command Line Tools Package
+Cài đặt Xcode Command Line Tools Package
 ```bash
 xcode-select --install
 ```
 
-Install [node.js](https://nodejs.org/) version in [.nvmrc](.nvmrc)
+Cài đặt phiên bản [node.js](https://nodejs.org/) được chỉ định trong [.nvmrc](.nvmrc)
 ```bash
 brew install node
 ```
 
-Clone the repository
+Clone repository
 ```bash
 git clone git@github.com:maplibre/maplibre-gl-js.git
 ```
 
-Install dependencies for node_canvas (https://github.com/Automattic/node-canvas)
+Cài đặt các dependency cho node_canvas (https://github.com/Automattic/node-canvas)
 ```bash
 brew install pkg-config cairo pango libpng jpeg giflib librsvg
 ```
 
-Install node module dependencies
+Cài đặt các node module dependency
 ```bash
 cd maplibre-gl-js &&
 npm install
@@ -86,13 +86,13 @@ npm install
 
 #### Apple silicon
 
-If you have one of the newer arm64 machines, you might find that canvas.node or webgl.node can't be found for your architecture. In that case go to `node_modules/canvas` and `node_modules/gl` and run:
+Nếu bạn dùng một trong các máy arm64 đời mới, bạn có thể gặp trường hợp không tìm thấy canvas.node hoặc webgl.node cho kiến trúc của mình. Trong trường hợp đó, hãy vào `node_modules/canvas` và `node_modules/gl` rồi chạy:
 
 ```
 npm install --build-from-source
 ```
 
-If you have installed from non-M1 machine to an M1 machine using Migration Assistant and you had `brew` installed before, and you get this error when running tests:
+Nếu bạn đã cài đặt từ một máy không phải M1 sang máy M1 bằng Migration Assistant và trước đó đã cài `brew`, và bạn gặp lỗi này khi chạy test:
 
 ```
 dlopen(/Users/[...]/common/temp/node_modules/.pnpm/canvas@2.11.0/node_modules/canvas/build/Release/canvas.node, 0x0001): symbol not found in flat namespace '_cairo_fill'
@@ -100,171 +100,171 @@ dlopen(/Users/[...]/common/temp/node_modules/.pnpm/canvas@2.11.0/node_modules/ca
       at Object.<anonymous> (../../common/temp/node_modules/.pnpm/canvas@2.11.0/node_modules/canvas/lib/bindings.js:3:18)
 ```
 
-Try
-- Uninstall then re-install `brew` [brew](https://brew.sh/)
-- Run `arch -arm64 brew install pkg-config cairo pango libpng jpeg giflib librsvg`
-- delete `node_modules` folder and re-run `npm install`
+Hãy thử
+- Gỡ cài đặt rồi cài lại `brew` [brew](https://brew.sh/)
+- Chạy `arch -arm64 brew install pkg-config cairo pango libpng jpeg giflib librsvg`
+- Xóa thư mục `node_modules` và chạy lại `npm install`
 
-### Linux (and by extension GitHub codespaces)
+### Linux (và tương tự với GitHub codespaces)
 
-Install [git](https://git-scm.com/), [GNU Make](https://www.gnu.org/software/make/), and libglew-dev
+Cài đặt [git](https://git-scm.com/), [GNU Make](https://www.gnu.org/software/make/), và libglew-dev
 ```bash
 sudo apt-get update &&
 sudo apt-get install build-essential git libglew-dev libxi-dev default-jre default-jdk xvfb
 ```
 
-If prebuilt binaries for canvas and gl aren’t available, you will also need:
+Nếu không có sẵn binary dựng sẵn (prebuilt) cho canvas và gl, bạn cũng sẽ cần:
 
 ```bash
 sudo apt-get install python-is-python3 pkg-config libpixman-1-dev libcairo2-dev libpango1.0-dev libgif-dev
 ```
 
-Install [nvm](https://github.com/nvm-sh/nvm)
+Cài đặt [nvm](https://github.com/nvm-sh/nvm)
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
-Install [Node.js](https://nodejs.org/) from .nvmrc
+Cài đặt [Node.js](https://nodejs.org/) theo .nvmrc
 ```
 nvm install
 ```
 
-Clone the repository
+Clone repository
 ```bash
 git clone git@github.com:maplibre/maplibre-gl-js.git
 ```
 
-Install node module dependencies
+Cài đặt các node module dependency
 ```bash
 cd maplibre-gl-js &&
 npm install
 ```
 
-Before you can [run the docs](./developer-guides/README-docs.md), you need to ensure Docker is installed and you have permission to run `docker` commands without `sudo`, as explained [here in the Docker docs](https://docs.docker.com/engine/install/linux-postinstall/).
+Trước khi bạn có thể [chạy docs](./developer-guides/README-docs.md), bạn cần đảm bảo Docker đã được cài đặt và bạn có quyền chạy các lệnh `docker` mà không cần `sudo`, như được giải thích [ở đây trong tài liệu Docker](https://docs.docker.com/engine/install/linux-postinstall/).
 
 
 ### Windows
 
-Consider using WSL and follow the above Linux guide or follow the next steps
+Cân nhắc sử dụng WSL và làm theo hướng dẫn Linux ở trên, hoặc làm theo các bước dưới đây
 
-Install [git](https://git-scm.com/), [node.js](https://nodejs.org/) (version in [.nvmrc](.nvmrc)), [npm and node-gyp](https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#compiling-native-addon-modules).
+Cài đặt [git](https://git-scm.com/), [node.js](https://nodejs.org/) (phiên bản trong [.nvmrc](.nvmrc)), [npm và node-gyp](https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#compiling-native-addon-modules).
 
-Clone the repository
+Clone repository
 ```bash
 git clone git@github.com:maplibre/maplibre-gl-js.git
 ```
 
-Install node module dependencies
+Cài đặt các node module dependency
 ```bash
 cd maplibre-gl-js
 npm install
 ```
 
-Install headless-gl dependencies https://github.com/stackgl/headless-gl#windows
+Cài đặt các dependency của headless-gl https://github.com/stackgl/headless-gl#windows
 ```
 copy node_modules/headless-gl/deps/windows/dll/x64/*.dll c:\windows\system32
 ```
 
-## Creating a Standalone Build
+## Tạo bản build độc lập (Standalone Build)
 
-A standalone build allows you to turn the contents of this repository into `maplibre-gl.mjs`, `maplibre-gl-worker.mjs` and `maplibre-gl.css` files that can be included on an html page.
+Một standalone build cho phép bạn chuyển nội dung của repository này thành các file `maplibre-gl.mjs`, `maplibre-gl-worker.mjs` và `maplibre-gl.css` có thể được nhúng vào một trang html.
 
-To create a standalone build, run
+Để tạo standalone build, chạy
 ```bash
 npm run build-dist
 ```
-Once that finishes, you will have a standalone build at `dist/maplibre-gl.mjs`, `dist/maplibre-gl-worker.mjs` and `dist/maplibre-gl.css`. Load it via `<script type="module">`; the worker URL is auto-detected as a sibling of the loaded module.
+Sau khi hoàn tất, bạn sẽ có một standalone build tại `dist/maplibre-gl.mjs`, `dist/maplibre-gl-worker.mjs` và `dist/maplibre-gl.css`. Hãy load nó thông qua `<script type="module">`; URL của worker sẽ được tự động phát hiện như một sibling của module đã load.
 
-## Testing changes and Writing Documentation
+## Kiểm thử thay đổi và viết tài liệu
 
-See [`developer-guides/README-docs.md`](./developer-guides/README-docs.md)
+Xem [`developer-guides/README-docs.md`](./developer-guides/README-docs.md)
 
-## Writing & Running Tests
+## Viết & chạy Test
 
-See [`test/README.md`](./test/README.md).
+Xem [`test/README.md`](./test/README.md).
 
-## Writing & Running Benchmarks
+## Viết & chạy Benchmark
 
-See [`test/bench/README.md`](./test/bench/README.md).
+Xem [`test/bench/README.md`](./test/bench/README.md).
 
-Micro benchmarks live next to the code they measure (`src/**/*.bench.ts`) and run with `npm run bench`; the end-to-end benchmarks live in `test/bench/e2e/`. If your PR claims a performance effect, include a before/after table from `npm run bench -- --compare` in the description.
+Micro benchmark nằm ngay cạnh code mà chúng đo lường (`src/**/*.bench.ts`) và chạy bằng `npm run bench`; các benchmark end-to-end nằm trong `test/bench/e2e/`. Nếu PR của bạn tuyên bố có tác động về hiệu năng, hãy kèm theo một bảng before/after từ `npm run bench -- --compare` trong phần mô tả.
 
-## Further guides
+## Các hướng dẫn khác
 
-See [`developer-guides`](./developer-guides) directory for guides on the release process and tile lifecycle.
+Xem thư mục [`developer-guides`](./developer-guides) để biết các hướng dẫn về quy trình release và vòng đời của tile.
 
-## Code Conventions
+## Quy ước về code
 
-* We use [`error` events](https://www.mapbox.com/mapbox-gl-js/api/#Map.event:error) to report user errors.
-* We use the latest feature that the TypeScript language has to offer including, but not limited to:
+* Chúng tôi sử dụng [`error` events](https://www.mapbox.com/mapbox-gl-js/api/#Map.event:error) để báo cáo lỗi của người dùng.
+* Chúng tôi sử dụng những tính năng mới nhất mà ngôn ngữ TypeScript cung cấp, bao gồm nhưng không giới hạn ở:
   * `let`/`const`
-  * `for...of` loops (for arraylike iteration only, i.e. what is supported by [Bublé's `dangerousForOf` transform](https://buble.surge.sh/guide/#dangerous-transforms))
-  * Arrow functions
-  * Classes
-  * Template strings
-  * Computed and shorthand object properties
-  * Default parameters
-  * Rest parameters
+  * Vòng lặp `for...of` (chỉ dùng cho việc lặp qua các đối tượng dạng mảng, tức là những gì được hỗ trợ bởi transform [`dangerousForOf` của Bublé](https://buble.surge.sh/guide/#dangerous-transforms))
+  * Arrow function
+  * Class
+  * Template string
+  * Computed và shorthand object property
+  * Default parameter
+  * Rest parameter
   * Destructuring
-  * Modules
+  * Module
 
-The conventions for module exports are:
+Các quy ước cho module export là:
 
-* No exported "namespace objects" -- modules should export either classes or functions, with an occasional exception as needed for stubbing.
-* If a module exports something with the same name as the file name (modulo case), it should be the default export.
-* Anything else should be a named export.
+* Không export các "namespace object" -- module nên export class hoặc function, thỉnh thoảng có ngoại lệ khi cần để phục vụ việc stub.
+* Nếu một module export thứ gì đó có tên trùng với tên file (không phân biệt hoa thường), nó nên là default export.
+* Bất cứ thứ gì khác nên là named export.
 
-To keep code uniformly styled and avoid common mistakes, you can check some files with the following scripts:
+Để giữ code có phong cách đồng nhất và tránh các lỗi phổ biến, bạn có thể kiểm tra một số file bằng các script sau:
 
 ```bash
 npm run lint
 npm run lint-css
 ```
 
-Additionally, if you're using VSCode, the "Format Document" action or "Editor: Format on Save" should enforce the js, ts, and css formatting for this project by default.
+Ngoài ra, nếu bạn dùng VSCode, thao tác "Format Document" hoặc "Editor: Format on Save" sẽ mặc định áp dụng định dạng js, ts và css cho dự án này.
 
-### Version Control Conventions
+### Quy ước về quản lý phiên bản (Version Control)
 
-Here is a recommended way to get setup:
+Dưới đây là cách được khuyến nghị để thiết lập:
 
-1. Fork this project
-2. Clone your new fork, `git clone git@github.com:GithubUser/maplibre-gl-js.git`
+1. Fork dự án này
+2. Clone fork mới của bạn, `git clone git@github.com:GithubUser/maplibre-gl-js.git`
 3. `cd maplibre-gl-js`
-4. Add the MapLibre repository as an upstream repository: `git remote add upstream git@github.com:maplibre/maplibre-gl-js.git`
-5. Create a new branch `git checkout -b your-branch` for your contribution
-6. Write code, open a PR from your branch when you're ready
-7. If you need to rebase your fork's PR branch onto main to resolve conflicts: `git fetch upstream`, `git rebase upstream/main` and force push to Github `git push --force origin your-branch`
+4. Thêm repository MapLibre làm upstream repository: `git remote add upstream git@github.com:maplibre/maplibre-gl-js.git`
+5. Tạo một branch mới `git checkout -b your-branch` cho đóng góp của bạn
+6. Viết code, mở một PR từ branch của bạn khi bạn đã sẵn sàng
+7. Nếu bạn cần rebase branch PR của fork mình lên main để giải quyết conflict: `git fetch upstream`, `git rebase upstream/main` rồi force push lên Github `git push --force origin your-branch`
 
-## Changelog Conventions
+## Quy ước về Changelog
 
-What warrants a changelog entry?
+Điều gì cần một mục changelog?
 
-- Any change that affects the public API, visual appearance or user security *must* have a changelog entry
-- Any performance improvement or bugfix *should* have a changelog entry
-- Any contribution from a community member *may* have a changelog entry, no matter how small
-- Any documentation related changes *should not* have a changelog entry
-- Any regression change introduced and fixed within the same release *should not* have a changelog entry
-- Any internal refactoring, technical debt reduction, render test, unit test or benchmark related change *should not* have a changelog entry
+- Bất kỳ thay đổi nào ảnh hưởng đến public API, giao diện hiển thị hoặc bảo mật người dùng *bắt buộc* phải có một mục changelog
+- Bất kỳ cải thiện hiệu năng hoặc bugfix nào *nên* có một mục changelog
+- Bất kỳ đóng góp nào từ thành viên cộng đồng *có thể* có một mục changelog, dù nhỏ đến đâu
+- Bất kỳ thay đổi liên quan đến tài liệu nào *không nên* có mục changelog
+- Bất kỳ regression nào được đưa vào và sửa trong cùng một release *không nên* có mục changelog
+- Bất kỳ refactoring nội bộ, giảm nợ kỹ thuật (technical debt), render test, unit test hoặc benchmark nào *không nên* có mục changelog
 
-How to add your changelog?
+Cách thêm changelog của bạn?
 
-- Edit the [`CHANGELOG.md`](CHANGELOG.md) file directly, inserting a new entry at the top of the appropriate list
-- Any changelog entry should be descriptive and concise; it should explain the change to a reader without context
+- Chỉnh sửa trực tiếp file [`CHANGELOG.md`](CHANGELOG.md), chèn một mục mới ở đầu danh sách phù hợp
+- Bất kỳ mục changelog nào cũng nên mô tả rõ ràng và súc tích; nó nên giải thích thay đổi cho một người đọc không có ngữ cảnh nào
 
-## Recommended Reading
+## Tài liệu đề xuất đọc thêm
 
-### Learning WebGL
+### Học WebGL
 
-- [Greggman's WebGL articles](https://webglfundamentals.org/)
-- [WebGL reference card](https://www.khronos.org/files/webgl/webgl-reference-card-1_0.pdf)
+- [Các bài viết WebGL của Greggman](https://webglfundamentals.org/)
+- [Thẻ tham khảo WebGL](https://www.khronos.org/files/webgl/webgl-reference-card-1_0.pdf)
 
-### GL Performance
+### Hiệu năng GL
 
-- [Debugging and Optimizing WebGL applications](https://docs.google.com/presentation/d/12AGAUmElB0oOBgbEEBfhABkIMCL3CUX7kdAPLuwZ964)
+- [Debug và tối ưu hóa ứng dụng WebGL](https://docs.google.com/presentation/d/12AGAUmElB0oOBgbEEBfhABkIMCL3CUX7kdAPLuwZ964)
 
-### Misc
+### Khác
 
-- [drawing antialiased lines](https://blog.mapbox.com/drawing-antialiased-lines-with-opengl-8766f34192dc)
-- [drawing text with signed distance fields](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817)
-- [label placement](https://www.mapbox.com/blog/placing-labels/)
-- [distance fields](https://bytewrangler.blogspot.com/2011/10/signed-distance-fields.html)
+- [Vẽ đường khử răng cưa (antialiased lines)](https://blog.mapbox.com/drawing-antialiased-lines-with-opengl-8766f34192dc)
+- [Vẽ text bằng signed distance field](https://blog.mapbox.com/drawing-text-with-signed-distance-fields-in-mapbox-gl-b0933af6f817)
+- [Đặt vị trí label (label placement)](https://www.mapbox.com/blog/placing-labels/)
+- [Distance field](https://bytewrangler.blogspot.com/2011/10/signed-distance-fields.html)

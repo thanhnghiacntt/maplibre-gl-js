@@ -1,8 +1,8 @@
-# Guides
+# Hướng dẫn (Guides)
 
-This section of the docs' site is dedicated to some more complex examples and tutorials.
-If you have something you would like to share with the community that is not straight forward and might be beneficial to others, this is the place!
+Phần này của trang tài liệu dành cho các ví dụ và hướng dẫn phức tạp hơn.
+Nếu bạn có điều gì đó muốn chia sẻ với cộng đồng mà không đơn giản và có thể hữu ích cho người khác, đây chính là nơi để chia sẻ!
 
-Things that are short enough and/or with lower complexity are probably already in the [Examples](../examples/index.md) section, but if not, feel free to add there.
+Những nội dung đủ ngắn gọn và/hoặc có độ phức tạp thấp hơn thường đã nằm trong phần [Examples](../examples/index.md), nhưng nếu chưa có, bạn cứ thoải mái thêm vào đó.
 
-The process of adding examples or guides is pretty straight forward, see our `docs` folder in the [MapLibre GL JS repo](https://github.com/maplibre/maplibre-gl-js/tree/main/docs) for more information.
+Quy trình thêm ví dụ hoặc hướng dẫn khá đơn giản, hãy xem thư mục `docs` của chúng tôi trong [MapLibre GL JS repo](https://github.com/maplibre/maplibre-gl-js/tree/main/docs) để biết thêm thông tin.

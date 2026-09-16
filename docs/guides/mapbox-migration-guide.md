@@ -1,12 +1,12 @@
-# Mapbox migration guide
+# Hướng dẫn di chuyển từ Mapbox
 
-This part of the docs is dedicated to the migration from `mapbox-gl` to `maplibre-gl`.
+Phần tài liệu này dành riêng cho việc di chuyển (migration) từ `mapbox-gl` sang `maplibre-gl`.
 
-This guide might not be accurate depending on the current version of `mapbox-gl` but should be fairly straight forward.
+Hướng dẫn này có thể không hoàn toàn chính xác tùy thuộc vào phiên bản `mapbox-gl` bạn đang dùng, nhưng nhìn chung khá đơn giản.
 
-The libraries are very similar but diverge with newer features happening from v2 in both libraries where Mapbox turned proprietary.
+Hai thư viện này rất giống nhau nhưng bắt đầu khác biệt với các tính năng mới xuất hiện từ phiên bản v2 trở đi ở cả hai thư viện, khi Mapbox chuyển sang giấy phép độc quyền (proprietary).
 
-The overall migration happens by uninstalling `mapbox-gl` and installing `maplibre-gl` in your node packages (or see below for CDN links), and replacing `mapboxgl` with `maplibregl` throughout your TypeScript, JavaScript and HTML/CSS.
+Nhìn chung, việc di chuyển được thực hiện bằng cách gỡ cài đặt `mapbox-gl` và cài đặt `maplibre-gl` trong các package Node của bạn (hoặc xem link CDN bên dưới), sau đó thay thế `mapboxgl` bằng `maplibregl` trong toàn bộ code TypeScript, JavaScript và HTML/CSS của bạn.
 
 ```diff
 -    var map = new mapboxgl.Map({
@@ -16,13 +16,13 @@ The overall migration happens by uninstalling `mapbox-gl` and installing `maplib
 +    <button class="maplibregl-ctrl">
 ```
 
-#### Compatibility branch
+#### Nhánh tương thích (Compatibility branch)
 
-MapLibre GL JS v1 is completely backward compatible with Mapbox GL JS v1. This compatibility branch (named 1.x) is tagged v1 on npm, and its current version is 1.15.3. 
+MapLibre GL JS v1 hoàn toàn tương thích ngược với Mapbox GL JS v1. Nhánh tương thích này (có tên 1.x) được gắn tag v1 trên npm, và phiên bản hiện tại của nó là 1.15.3.
 
-#### CDN Links
+#### Link CDN
 
-> MapLibre GL JS is distributed via [unpkg.com](https://unpkg.com).
+> MapLibre GL JS được phân phối thông qua [unpkg.com](https://unpkg.com).
 
 ```diff
 -    <script src="https://api.mapbox.com/mapbox-gl-js/v#.#.#/mapbox-gl.js"></script>
@@ -42,5 +42,6 @@ MapLibre GL JS v1 is completely backward compatible with Mapbox GL JS v1. This c
 
 ```
 
-Don't forget to replace the version above `#.#.#` with the version you would like to use.
-In the upper right corner of this page you can find the number of the latest version.
+Đừng quên thay thế phiên bản ở trên `#.#.#` bằng phiên bản mà bạn muốn sử dụng.
+Bạn có thể tìm số phiên bản mới nhất ở góc trên bên phải của trang này.
+</content>
